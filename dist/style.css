@@ -1,0 +1,468 @@
+/* Where the variables go: */
+:root {
+  --muted-text-color: #333;
+  --mild-text-color: #555;
+  --link-color: rgb(255, 166, 0);
+  --visited-link-color: rgb(255, 68, 0);
+}
+
+html,
+body {
+  height: 100%;
+  max-height: 100vh;
+}
+
+body {
+  margin: 0;
+
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+
+  display: grid;
+
+  grid-template-rows: 3rem 1fr min-content;
+
+
+  color: whitesmoke;
+  font-family: "Ubuntu Mono", "Courier New", "Courier", monospace;
+  font-size: 1rem;
+
+  background-color: #040404;
+}
+
+header {
+  justify-self: center;
+}
+
+main {
+  display: grid;
+
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 8fr 2fr;
+
+  grid-template-areas: "game status"
+        "actions actions";
+
+  /* Prevent elements from being so large they expand the grid. Wack. */
+  min-height: 0;
+  min-width: 0;
+}
+
+.board {
+  grid-area: game;
+  display: grid;
+
+  grid-template-columns: repeat(50, 0.75rem);
+  grid-template-rows: repeat(25, 1.25rem);
+
+  justify-self: center;
+  align-self: center;
+}
+
+
+.actionbar {
+  grid-area: actions;
+  height: 5rem;
+  /* max-height: 100%; */
+}
+
+.sidebar {
+  grid-area: status;
+  padding-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  /*padding: 1rem;*/
+  min-height: 0;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.sidebar #inspect-status {
+  word-break: break-all;
+}
+
+ul.message-log {
+  margin: 0;
+  list-style-type: none;
+  padding-inline: unset;
+  line-height: 1.25rem;
+  overflow-y: auto;
+}
+
+p {
+  margin: 0.5rem 0 0.5rem;
+}
+
+.inspect-text {
+  font-size: 0.9rem;
+}
+
+footer {
+  height: 2.5rem;
+  align-self: center;
+}
+
+.muted {
+  color: var(--muted-text-color);
+}
+
+/* styles for the game pieces specifically */
+/* pc: piece */
+
+.pc-wall {
+  color: whitesmoke;
+  font-weight: bold;
+}
+
+.pc-player {
+  color: orangered;
+}
+
+dialog {
+  position: inherit;
+  margin: 0;
+  width: auto;
+  height: auto;
+
+  border: 1px solid whitesmoke;
+  grid-area: game;
+  background: black;
+
+  color: currentColor;
+}
+
+::selection {
+  color: black;
+  background: white;
+}
+
+.highlight {
+  color: black;
+  background: white;
+  animation: 0.5s infinite alternate pulsing;
+}
+
+@keyframes pulsing {
+  from {
+    background: white;
+  }
+  to {
+    background: fuchsia;
+  }
+}
+
+.wish-menu {
+  border: 1px solid whitesmoke;
+  grid-area: game;
+  background: black;
+  padding: 2rem;
+}
+
+#main_menu {
+  display: grid;
+  grid-template: 2rem 2rem 2rem / [main-start] 1fr [main-end] 1fr 2em;
+  grid-gap: 0.5rem 0.75rem;
+  justify-items: center;
+}
+
+#main_menu h2 {
+  text-align: center;
+  align-self: center;
+}
+
+#main_menu button {
+  grid-column-end: main-end;
+  min-width: 40%;
+}
+
+#main_menu .closeButton {
+  grid-column: 3 / span 1;
+  grid-row: 1 / span 1;
+  min-width: 100%;
+}
+
+#main_menu table {
+  grid-column: main-end / span 1;
+  grid-row: 2 / span 2;
+}
+
+
+
+/*#main_menu*/
+.saves-menu {
+  display: grid;
+  grid-template: 2rem auto 1fr / 2rem 12rem 1fr 1fr 2rem;
+  grid-template-areas:
+    ". head refresh . xbutton"
+    "listings listings listings stats stats"
+    "listings listings listings load .";
+
+  grid-gap: 1rem;
+}
+
+.saves-menu > h2 {
+  grid-area: head;
+  align-self: center;
+  justify-self: start;
+}
+
+.saves-menu > button#refresh {
+  grid-area: refresh;
+  justify-self: end;
+  width: 6rem;
+}
+
+.saves-menu > button#loadSave {
+  grid-area: load;
+  max-height: 2rem;
+  min-width: 8rem;
+  justify-self: end;
+}
+
+.saves-menu > button#xbutton {
+  grid-area: xbutton;
+}
+
+.saves-menu > p {
+  color: #555555;
+  grid-area: listings;
+}
+
+.saves-menu > ol {
+  grid-area: listings;
+  margin: 0;
+  padding-inline-start: 3rem;
+}
+
+.saves-menu > ol > li::marker {
+  color: var(--muted-text-color);
+}
+
+.saves-menu > p {
+  grid-column-start: 2;
+}
+
+.saves-menu > ol a {
+  color: white;
+  /*background-color: var(--mild-text-color);*/
+  text-decoration: none;
+}
+
+.saves-menu > ol a:focus, .saves-menu > ol a:active, .saves-menu > ol a:hover {
+  background-color: var(--mild-text-color);
+  text-decoration: underline 1px;
+}
+
+.saves-menu > table {
+  grid-area: stats;
+  height: max-content;
+}
+
+table td[title=bonus] {
+  color: var(--mild-text-color);
+}
+
+table td[title=bonus]::before {
+  content: "(";
+  color: var(--mild-text-color);
+}
+
+table td[title=bonus]::after {
+  content: ")";
+  color: var(--mild-text-color);
+}
+
+table td.negative-bonus {
+  color: #d2112e;
+}
+
+table td.positive-bonus {
+  color: #4bcb10;
+}
+
+.save-game-menu {
+  display: grid;
+  grid-template: 2rem auto 1fr / 2rem 12rem 1fr 1fr 2rem;
+  grid-template-areas:
+    ". head refresh . xbutton"
+    ". label name . ."
+    ". . save . .";
+
+  grid-gap: 1rem;
+}
+
+/* TODO: merge dialog styles */
+.save-game-menu button#closeCharacter {
+  grid-area: xbutton;
+}
+
+.save-game-menu button#saveCharacter {
+  grid-area: save;
+  max-height: 2rem;
+}
+
+.save-game-menu h2 {
+  grid-area: head;
+}
+
+.save-game-menu input#filename_field {
+  grid-area: name;
+}
+
+.save-game-menu label[for="filename_field"] {
+  grid-area: label;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.2rem;
+}
+
+/* text-align helpers: .ta-foobar */
+.ta-left {
+  text-align: left;
+}
+
+.ta-center {
+  text-align: center;
+}
+
+.ta-right {
+  text-align: right;
+}
+
+a {
+  color: var(--link-color);
+}
+
+a:visited {
+  color: var(--visited-link-color);
+}
+
+/* figure this out later */
+a.muted {
+  color: rgb(182, 126, 21);
+}
+
+a:visited.muted {
+  color: rgb(187, 87, 50);
+}
+
+/* Reasonable buttons */
+
+button {
+  display: inline-block;
+  border: none;
+  padding: 0.25rem 0;
+  margin: 0;
+  text-decoration: none;
+  background: #333;
+  color: #d8d8d8;
+  font-family: monospace;
+  cursor: pointer;
+  text-align: center;
+  transition: background 100ms ease-in-out,
+  transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button[disabled] {
+  text-decoration: line-through;
+}
+
+button[disabled]:hover {
+  background: #333;
+  color: #d8d8d8;
+}
+
+button:hover,
+button:focus {
+  background: #222;
+  color: white;
+}
+
+/* button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+} */
+
+button:active {
+  transform: scale(0.99);
+}
+
+/* muted buttons */
+button.muted {
+  color: #868686 !important;
+}
+
+button:focus.muted,
+button:hover.muted {
+  color: #eee !important;
+}
+
+/* buttons that look like links/content */
+button.subtle {
+  color: white !important;
+  display: inline;
+  background-color: #000;
+  text-align: start;
+  padding: 0.25rem;
+}
+
+button:hover.subtle {
+  background-color: #222 !important;
+  text-decoration: underline 1px !important;
+}
+
+button[title='Selected Save'] {
+  background-color: #222 !important;
+  text-decoration: underline 1px !important;
+  color: orangered !important;
+}
+
+button:active.subtle {
+  background-color: #222 !important;
+  text-decoration: underline 1px !important;
+  color: fuchsia !important;
+}
+
+/* powerful buttons with loud colour */
+button.strong {
+  background: var(--link-color);
+  color: #040404;
+}
+
+button:focus.strong,
+button:hover.strong {
+  background-color: orangered !important;
+  color: white !important;
+}
+
+/* pretty text inputs */
+input:not([type=submit]):not([type=file]) {
+  background: rgba(0, 0, 0);
+  color: whitesmoke;
+  font-family: "Ubuntu Mono", "Courier New", "Courier", monospace;
+  font-size: 1rem;
+
+  border: 1px solid white;
+  -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
+  0 0 16px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
+  0 0 16px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1),
+  0 0 16px rgba(0, 0, 0, 0.1);
+  padding: 4px;
+}
+
+/* Normally I can use the `hidden` attribute in HTML itself, but not for grid
+or flex containers. */
+.hidden {
+  visibility: hidden;
+}

@@ -1,0 +1,15 @@
+{
+  "name": "1537assignment4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no tests\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Stan Petrov (nokko)",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

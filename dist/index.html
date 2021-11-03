@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- fonts! -->
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu+Mono"/>
+  <link rel="stylesheet" href="style.css">
+  <title>The Station</title>
+</head>
+
+<body>
+<header>
+  <h1>THE STATION</h1>
+</header>
+<main>
+  <section role="group" class="board" id="board">
+
+  </section>
+
+  <section role="group" class="sidebar">
+    <!-- <h2 class="ta-center">Status</h2> -->
+    <pre id="inspect-status" class="inspect-text muted" hidden> Nothing to report. </pre>
+
+    <ul id="messages" class="message-log">
+      <li id="intro-message">
+        <p>
+          Welcome to THE STATION, a skeleton of a game made for the Web
+          Development course of BCIT's CST program.
+        </p>
+        <p>
+          To view the controls, press the ? key.
+        </p>
+        <hr/>
+      </li>
+      <li hidden id="controls-message">
+        <p>To move around, use the “Vim Keys” HJKL. H & L move left and right,
+          while J & K move down and up.</p>
+        <!--        <p>To display a character menu, press X.</p>-->
+        <p>To save your game, press S. To open a previously-saved game, press O.</p>
+        <p>To access a developer “Wish Menu,” press W.</p>
+        <hr/>
+      </li>
+    </ul>
+  </section>
+
+  <section role="group" class="actionbar" id="actions">
+    <h2>Actions</h2>
+  </section>
+</main>
+<footer class="muted">
+  A GAME BY <a href="https://nokko.me">NOKKO</a>
+  <button tabindex="0" class="muted" id="hide-footer">[Hide Footer]</button>
+</footer>
+
+<script src="main.js"></script>
+</body>
+
+</html>

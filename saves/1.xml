@@ -1,0 +1,104 @@
+<?xml version="1.0" standalone="yes"?>
+<savegame>
+    <name>Test Save</name>
+    <description>A template save game, written by hand.</description>
+    <character level="26" class="warrior">
+        <name>Nagawur</name>
+        <!-- an HTML table to satisfy the requirements -->
+        <stats>
+            <table>
+                <!-- An attribute -->
+                <tr>
+                    <!-- Abbreviation-->
+                    <td title="abbreviation">STR</td>
+                    <!-- Full Name -->
+                    <td title="attribute-name">Strength</td>
+                    <!-- Score -->
+                    <td title="score">20</td>
+                    <!-- Bonus -->
+                    <td title="bonus">+2</td>
+                    <!-- Code Identifier -->
+                    <td title="codename">strength</td>
+                    <td title="star">*</td>
+                </tr>
+                <tr>
+                    <td title="abbreviation">DEX</td>
+                    <td title="attribute-name">Dexterity</td>
+                    <td title="score">18</td>
+                    <td title="bonus">+1</td>
+                    <td title="codename">dexterity</td>
+                    <td title="star">*</td>
+                </tr>
+                <tr>
+                    <td title="abbreviation">VIG</td>
+                    <td title="attribute-name">Vigor</td>
+                    <td title="score">16</td>
+                    <td title="bonus">+0</td>
+                    <td title="codename">vigor</td>
+                </tr>
+                <tr>
+                    <td title="abbreviation">WIS</td>
+                    <td title="attribute-name">Wisdom</td>
+                    <td title="score">12</td>
+                    <td title="bonus">-2</td>
+                    <td title="codename">wisdom</td>
+                    <td title="star"></td>
+                </tr>
+                <tr>
+                    <td title="abbreviation">INT</td>
+                    <td title="attribute-name">Intellect</td>
+                    <td title="score">14</td>
+                    <td title="bonus">-1</td>
+                    <td title="codename">intellect</td>
+                    <td title="star"></td>
+                </tr>
+                <tr>
+                    <td title="abbreviation">FAI</td>
+                    <td title="attribute-name">Faith</td>
+                    <td title="score">16</td>
+                    <td title="bonus">+0</td>
+                    <td title="codename">faith</td>
+                    <td title="star"></td>
+                </tr>
+                <tr>
+                    <td title="abbreviation">ATT</td>
+                    <td title="attribute-name">Attunement</td>
+                    <td title="score">8</td>
+                    <td title="bonus">-5</td>
+                    <td title="codename">attunement</td>
+                    <td title="star"></td>
+                </tr>
+                <tr>
+                    <td title="abbreviation">SAN</td>
+                    <td title="attribute-name">Sanity</td>
+                    <td title="score">16</td>
+                    <td title="bonus">+0</td>
+                    <td title="codename">sanity</td>
+                    <td title="star"></td>
+                </tr>
+                <tr>
+                    <td title="abbreviation">EGO</td>
+                    <td title="attribute-name">Ego</td>
+                    <td title="score">12</td>
+                    <td title="bonus">-2</td>
+                    <td title="codename">ego</td>
+                    <td title="star"></td>
+                </tr>
+                <tr>
+                    <td title="abbreviation">RES</td>
+                    <td title="attribute-name">Resistance</td>
+                    <td title="score">0</td>
+                    <td title="bonus">-9</td>
+                    <td title="codename">resistance</td>
+                    <td title="star"></td>
+                </tr>
+            </table>
+        </stats>
+    </character>
+
+    <current_screen is="joppa"/>
+    <world>
+        <screen name="joppa">insert weirdly encoded data here</screen>
+        <screen name="joppa_caves_1">insert weirdly encoded data here</screen>
+    </world>
+</savegame>
